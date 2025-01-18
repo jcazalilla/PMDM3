@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "77238468680",
+    "project_id": "jesuspmdm3",
+    "storage_bucket": "jesuspmdm3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:77238468680:android:c389d7493a514a6386d87d",
+        "android_client_info": {
+          "package_name": "moreno.cazalilla.jesusmaria"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "77238468680-vamrcdm3vqetcraso778i6k3ja68l1ka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOKe0jrBDVph8rfQPFWa5uapRu2gfSiRo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "77238468680-vamrcdm3vqetcraso778i6k3ja68l1ka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
