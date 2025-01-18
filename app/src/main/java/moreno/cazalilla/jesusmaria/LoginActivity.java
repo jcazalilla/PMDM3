@@ -2,7 +2,6 @@ package moreno.cazalilla.jesusmaria;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultCallback;
