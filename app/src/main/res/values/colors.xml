@@ -8,5 +8,7 @@
 
     <color name="orange">#FF8F00</color>
     <color name="yellow">#dddf2e</color>
-    <color name="brown">#4D3210</color>
+    <color name="brown">#56370B</color>
+
+    <color name="violet">#768cdb</color>
 </resources>
