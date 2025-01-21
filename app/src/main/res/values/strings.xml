@@ -3,4 +3,5 @@
     <string name="ajustes">Ajustes</string>
     <string name="pokedex">Pokédex</string>
     <string name="mis_pokemons">Mis pokémons</string>
+    <string name="about">About...</string>
 </resources>
