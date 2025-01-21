@@ -13,9 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import moreno.cazalilla.jesusmaria.adapters.PokedexAdapter;
-import moreno.cazalilla.jesusmaria.adapters.PokemonsAdapter;
 import moreno.cazalilla.jesusmaria.databinding.FragmentPokedexBinding;
-import moreno.cazalilla.jesusmaria.databinding.FragmentPokemonsBinding;
 import moreno.cazalilla.jesusmaria.models.PokemonData;
 
 public class PokedexFragment extends Fragment {

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/nav_characters"
-        android:icon=" "
+        android:id="@+id/nav_pokemons"
+        android:icon="@drawable/pikachu"
         android:title="@string/mis_pokemons"/>
     <item
-        android:id="@+id/nav_worlds"
-        android:icon=" "
+        android:id="@+id/nav_pokedex"
+        android:icon="@drawable/pokemonball"
         android:title="@string/pokedex" />
     <item
-        android:id="@+id/nav_collectibles"
-        android:icon="@drawable/ic_settings"
+        android:id="@+id/nav_ajustes"
+        android:icon="@drawable/ic_ajustes"
         android:title="@string/ajustes" />
 </menu>
