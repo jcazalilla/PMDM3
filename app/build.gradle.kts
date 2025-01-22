@@ -46,6 +46,12 @@ dependencies {
 
     implementation("com.google.firebase:firebase-admin:1.32.0")
 
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0'")
+
+    implementation ("com.google.code.gson:gson:2.8.2")
+    implementation("com.github.bumptech.glide:glide:4.11.0")
+
 
     implementation(libs.appcompat)
     implementation(libs.material)

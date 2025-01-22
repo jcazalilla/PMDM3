@@ -10,11 +10,15 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import java.util.List;
 
 import moreno.cazalilla.jesusmaria.adapters.PokemonsAdapter;
 import moreno.cazalilla.jesusmaria.databinding.FragmentPokemonsBinding;
 import moreno.cazalilla.jesusmaria.models.PokemonData;
+
+
+
 
 public class PokemonsFragment extends Fragment {
 
@@ -24,15 +28,25 @@ public class PokemonsFragment extends Fragment {
     private PokemonsAdapter adapter;
     private List<PokemonData> listPokemon;
 
-    public View onCreate(@NonNull LayoutInflater inflater,
-                         ViewGroup container, Bundle savedInstanceState){
 
-        binding = FragmentPokemonsBinding.inflate(inflater,container,false);
+
+
+
+    public View onCreate(@NonNull LayoutInflater inflater,
+                         ViewGroup container, Bundle savedInstanceState) {
+
+
+
+
+
+
+
+        binding = FragmentPokemonsBinding.inflate(inflater, container, false);
 
         //inicializamos RecycleView y el adaptador
-        recyclerView=binding.recyclerViewPokemons;
+        recyclerView = binding.recyclerViewPokemons;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter=new PokemonsAdapter(listPokemon);
+        adapter = new PokemonsAdapter(listPokemon);
         recyclerView.setAdapter(adapter);
 
         //cargarmos los datos del xml
@@ -40,6 +54,7 @@ public class PokemonsFragment extends Fragment {
         return binding.getRoot();
 
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -48,4 +63,6 @@ public class PokemonsFragment extends Fragment {
 
     private void loadPokemos() {
     }
+
+
 }

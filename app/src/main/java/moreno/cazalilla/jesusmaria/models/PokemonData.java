@@ -1,25 +1,16 @@
 package moreno.cazalilla.jesusmaria.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class PokemonData {
+    @SerializedName("name")
+    @Expose
+    private String name;
 
-    String name;
-    int indice;
-    String photo;
-    String type;
-    int height;
-    int weight;
-
-
-    public PokemonData(String name, String photo) {
-        this.name = name;
-        this.indice = indice;
-        this.photo = photo;
-        this.type = type;
-        this.height = height;
-        this.weight = weight;
-    }
-
-
+    @SerializedName("url")
+    @Expose
+    private String url;
 
     public String getName() {
         return name;
@@ -29,43 +20,8 @@ public class PokemonData {
         this.name = name;
     }
 
-    public int getIndice() {
-        return indice;
+    public String getDescription() {
+        return "It's " + getName() + "!";
     }
 
-    public void setIndice(int indice) {
-        this.indice = indice;
-    }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
 }

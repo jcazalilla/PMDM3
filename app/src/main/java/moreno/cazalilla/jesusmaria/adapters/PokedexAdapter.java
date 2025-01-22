@@ -1,6 +1,8 @@
 package moreno.cazalilla.jesusmaria.adapters;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import moreno.cazalilla.jesusmaria.R;
+import moreno.cazalilla.jesusmaria.fragments.PokedexFragment;
 import moreno.cazalilla.jesusmaria.models.PokemonData;
 
 public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder> {
@@ -34,16 +37,30 @@ public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexV
     @Override
     public void onBindViewHolder(@NonNull PokedexAdapter.PokedexViewHolder holder, int position) {
 
-        PokemonData pokedex = listPokedex.get(position);
-        holder.nameTextView.setText(pokedex.getName());
 
-        //cargar la imagen (simulado con un recurso drawable)
-        int imageResId = holder.itemView.getContext().getResources()
-                .getIdentifier(pokedex.getPhoto(),"drawable",holder.itemView
-                        .getContext().getPackageName());
+        holder.mIdView.setText(Integer.toString(position));
+        holder.mContentView.setText(mValues.get(position).getName());
 
-        holder.imageImageView.setImageResource(imageResId);
+        holder.itemView.setTag(position);
+        holder.itemView.setOnClickListener(mOnClickListener);
+
+
     }
+    private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            int index = (int) view.getTag();
+            Pokemon item = mValues.get(index);
+
+            Context context = view.getContext();
+            Intent intent = new Intent(context, PokedexFragment.class);
+            intent.putExtra(ItemDetailFragment.ARG_ITEM_ID, index + 1);
+            intent.putExtra(ItemDetailFragment.ARG_ITEM_NAME, item.getName());
+            intent.putExtra(ItemDetailFragment.ARG_DESCRIPTION, item.getDescription());
+
+            context.startActivity(intent);
+        }
+    };
 
     @Override
     public int getItemCount() {
