@@ -10,7 +10,7 @@ public class PokemonData {
     int weight;
 
 
-    public PokemonData(String name, int indice, String photo, String type, int height, int weight) {
+    public PokemonData(String name, String photo) {
         this.name = name;
         this.indice = indice;
         this.photo = photo;
@@ -18,6 +18,8 @@ public class PokemonData {
         this.height = height;
         this.weight = weight;
     }
+
+
 
     public String getName() {
         return name;
