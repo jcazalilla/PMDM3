@@ -3,5 +3,7 @@
     <string name="ajustes">Ajustes</string>
     <string name="pokedex">Pokédex</string>
     <string name="mis_pokemons">Mis pokémons</string>
-    <string name="about">About...</string>
+    <string name="acerca_de">Desarrollado por Jesús Mª Moreno Cazalilla.\nv:1.0</string>
+    <string name="title_acerca_de">Acerca de...</string>
+    <string name="accept">Aceptar</string>
 </resources>

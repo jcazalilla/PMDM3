@@ -3,21 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/navigation_pokemons">
+    app:startDestination="@id/navigation_pokedex">
+
 
     <fragment
-        android:id="@+id/navigation_pokemons"
-        android:name="moreno.cazalilla.jesusmaria.fragments.PokemonsFragment"
-        android:label="fragment_pokemons"
-        tools:layout="@layout/fragment_pokemons" />
-    <fragment
         android:id="@+id/navigation_pokedex"
-        android:name="moreno.cazalilla.jesusmaria.fragments.PokedexFragment"
+        android:name="moreno.cazalilla.jesusmaria.PokedexFragment"
         android:label="fragment_pokedex"
         tools:layout="@layout/fragment_pokedex" />
     <fragment
+        android:id="@+id/navigation_pokemon"
+        android:name="moreno.cazalilla.jesusmaria.PokemonFragment"
+        android:label="fragment_pokedex"
+        tools:layout="@layout/fragment_pokemon" />
+    <fragment
         android:id="@+id/navigation_ajustes"
-        android:name="moreno.cazalilla.jesusmaria.fragments.AjustesFragment"
-        android:label="fragment_ajustes"
+        android:name="moreno.cazalilla.jesusmaria.AjustesFragment"
+        android:label="fragment_pokedex"
         tools:layout="@layout/fragment_ajustes" />
+
 </navigation>

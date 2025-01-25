@@ -1,45 +1,35 @@
-package moreno.cazalilla.jesusmaria.fragments;
+package moreno.cazalilla.jesusmaria;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.gson.GsonBuilder;
-
-import java.util.ArrayList;
 import java.util.List;
 
-import moreno.cazalilla.jesusmaria.adapters.PokedexAdapter;
 import moreno.cazalilla.jesusmaria.databinding.FragmentPokedexBinding;
-import moreno.cazalilla.jesusmaria.models.PokemonData;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.http.GET;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
-//interfaz que permite a retrofit saber los endpoints
-interface PokemonAPI {
-    @GET("pokemon/?limit=50")
-    Call getPokemons();
-}
 
 
 public class PokedexFragment extends Fragment {
 
     private FragmentPokedexBinding binding;
 
-    private RecyclerView recyclerView;
-    private PokedexAdapter adapter;
     private List<PokemonData> listPokedex;
+    private TextView nameEdittext;
+    private TextView urlEdittext;
 
 
     public View onCreate(@NonNull LayoutInflater inflater,
@@ -49,13 +39,13 @@ public class PokedexFragment extends Fragment {
         binding = FragmentPokedexBinding.inflate(inflater, container, false);
 
         //inicializamos RecycleView y el adaptador
-        recyclerView = binding.recyclerViewPokedex;
+        RecyclerView recyclerView = binding.recyclerViewPokedex;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new PokedexAdapter(listPokedex);
+        PokedexAdapter adapter = new PokedexAdapter(listPokedex);
         recyclerView.setAdapter(adapter);
 
 
-        //RETROFIT
+        //llamada a RETROFIT
         loadPokedex();
         return binding.getRoot();
 
@@ -67,37 +57,37 @@ public class PokedexFragment extends Fragment {
         binding = null;
     }
 
+
     private void loadPokedex() {
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://pokeapi.co/api/v2/")
-                .addConverterFactory(GsonConverterFactory.create(
-                        new GsonBuilder().serializeNulls().create()
-                )).build();
-        PokemonAPI pokemonApi = retrofit.create(PokemonAPI.class);
-        Call call = pokemonApi.getPokemons();
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        PokemonAPI pokemonAPI = retrofit.create(PokemonAPI.class);
+        Call<List<PokemonData>> call = pokemonAPI.getPokemons();
 
 
-        call.enqueue(new Callback() {
+        call.enqueue(new Callback<>() {
+
             @Override
-            public void onResponse(Call call, Response response) {
+            public void onResponse(Call<List<PokemonData>> call, Response<List<PokemonData>> response) {
                 if (response.isSuccessful()) {
-                    ArrayList pokemonList = response.body().getResults();
-                    View recyclerView = findViewById(R.id.item_list);
-                    assert recyclerView != null;
-                    setupRecyclerView((RecyclerView) recyclerView, pokemonList);
-                } else {
-                    Toast.makeText(this, "Error al cargar Pokédex", Toast.LENGTH_SHORT).show();
-                    return;
+                    listPokedex = response.body();
+
+                    for (PokemonData l: listPokedex){
+                        nameEdittext.setText(l.getName());
+                        urlEdittext.setText(l.getUrl());
+                    }
                 }
             }
 
             @Override
-            public void onFailure(Call call, Throwable t) {
-                //TODO
+            public void onFailure(Call<List<PokemonData>> call, Throwable t) {
+                nameEdittext.setText(t.getMessage());
             }
         });
-
     }
-
 
 }
