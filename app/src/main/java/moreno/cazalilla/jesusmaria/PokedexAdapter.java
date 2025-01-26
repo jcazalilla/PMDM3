@@ -11,8 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import moreno.cazalilla.jesusmaria.databinding.FragmentPokedexBinding;
+
 public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder> {
+
     private List<PokemonData> listPokedex;
+
 
     public PokedexAdapter(List<PokemonData> list) {
         this.listPokedex = list;
@@ -31,7 +35,6 @@ public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexV
     public void onBindViewHolder(@NonNull PokedexAdapter.PokedexViewHolder holder, int position) {
 
         PokemonData pokemon = listPokedex.get(position);
-
         holder.nameTextView.setText(pokemon.getName());
         holder.urlTextView.setText(pokemon.getUrl());
 
@@ -46,13 +49,13 @@ public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexV
 
     public class PokedexViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView nameTextView;
-        private TextView urlTextView;
+        TextView nameTextView;
+        TextView urlTextView;
 
         public PokedexViewHolder(@NonNull View itemView) {
             super(itemView);
-            nameTextView.findViewById(R.id.name);
-            urlTextView.findViewById(R.id.url);
+            nameTextView = itemView.findViewById(R.id.name);
+            urlTextView = itemView.findViewById(R.id.url);
 
         }
     }

@@ -7,6 +7,8 @@ import retrofit2.http.GET;
 
 //endpoint petición de consulta
 public interface PokemonAPI {
-    @GET("pokemon?offset=0&limit=150")
-    Call<List<PokemonData>> getPokemons();
+    String endPoint = "pokemon?offset=0&limit=150";
+
+    @GET(endPoint)
+    Call<PokemonResponse> getPokemons();
 }

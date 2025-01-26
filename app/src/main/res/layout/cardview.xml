@@ -10,11 +10,11 @@
     app:cardElevation="0dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="379dp"
+        android:layout_height="match_parent"
         android:background="#00000000"
-        android:orientation="horizontal"
-        android:padding="5dp">
+        android:orientation="vertical"
+        android:padding="15dp">
 
 
         <!-- Nombre del personaje -->
@@ -30,12 +30,11 @@
         <!-- url del personaje -->
         <TextView
             android:id="@+id/url"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="194dp"
+            android:layout_height="106dp"
             android:layout_gravity="center_vertical"
-            android:textColor="@color/blue"
             android:scaleType="centerCrop"
-            />
+            android:textColor="@color/blue" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

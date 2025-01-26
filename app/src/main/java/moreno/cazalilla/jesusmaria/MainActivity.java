@@ -1,10 +1,11 @@
 package moreno.cazalilla.jesusmaria;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.*;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -101,7 +102,22 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.accept, null)
                 .show();
     }
+
+    //=================================================================================================
+    // session login
+    private void logOutSession(View view) {
+        AuthUI.getInstance()
+                .signOut(this)
+                .addOnCompleteListener(task -> goToLogin());
+    }
+
+    private void goToLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
+
 
 
 
@@ -127,8 +143,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // lectura de datos de la colección
-        private void readAllDataFirestore (View view){
-    //instancia de la base de datos de Firestore
+        private void readAllDataFirestore (View view) {
+            //instancia de la base de datos de Firestore
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
             Task<QuerySnapshot> player = db.collection("player").get().addOnSuccessListener(runnable ->
@@ -136,18 +152,6 @@ public class MainActivity extends AppCompatActivity {
                     .addOnFailureListener(Runnable ->
                             Toast.makeText(this, "fallo en la letura de la colección", Toast.LENGTH_SHORT).show());
 
+        }
 
-    //=================================================================================================
-    // session login
-    private void logOutSession(View view) {
-        AuthUI.getInstance()
-                .signOut(this)
-                .addOnCompleteListener(task -> goToLogin());
-    }
-
-    private void goToLogin() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        finish();
-    }
 */

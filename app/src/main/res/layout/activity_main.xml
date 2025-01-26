@@ -11,7 +11,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
-        app:title="My App"
+        app:title="PMDM tarea 3"
         tools:ignore="MissingConstraints" />
 
     <!-- NavHostFragment para manejar la navegación entre fragmentos -->
