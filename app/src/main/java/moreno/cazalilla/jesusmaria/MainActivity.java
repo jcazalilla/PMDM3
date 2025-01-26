@@ -49,16 +49,21 @@ public class MainActivity extends AppCompatActivity {
         binding.navView.setOnItemSelectedListener(this::selectedBottomMenu);
 
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
-            if (destination.getId() == R.id.navigation_pokedex ||
-                    destination.getId() == R.id.navigation_pokemon ||
-                    destination.getId() == R.id.navigation_ajustes) {
+            if (destination.getId() == R.id.navigation_pokedex ){
                 //Para las pantallas de los tabs, que no aparezca la flecha de atrás
                 getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-                {
+                getSupportActionBar().setTitle("Lista Pokédex");
+            }else if(destination.getId() == R.id.navigation_pokemon ){
+                getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                getSupportActionBar().setTitle("Pokémons caputurados");
+            }else if(destination.getId() == R.id.navigation_ajustes) {
+                getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                getSupportActionBar().setTitle("Ajustes");
+            }else{
                     //Si se navega a una pantalla donde se desea mostrar la flecha atrás, habilitada
                     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                 }
-            }
+
         });
     }
 
@@ -121,11 +126,3 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
-/*
-
-        //===============================================================================================
-
-
-
-
-*/
