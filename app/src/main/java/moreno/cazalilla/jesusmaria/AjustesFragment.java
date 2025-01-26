@@ -13,4 +13,6 @@ public class AjustesFragment extends PreferenceFragmentCompat {
         // Carga las preferencias desde el archivo XML
         setPreferencesFromResource(R.xml.preferences, rootKey);
     }
+
+
 }

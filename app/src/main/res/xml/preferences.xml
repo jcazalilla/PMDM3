@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="Ajustes">
+    <PreferenceCategory android:title="Ajustes"
+        android:icon="@drawable/ic_tool">
 
 
         <ListPreference
             android:defaultValue="en"
+            android:icon="@drawable/ic_language"
             android:entries="@array/languages"
             android:entryValues="@array/language_values"
             android:key="language"
             android:title="Idioma" />
 
+
         <SwitchPreferenceCompat
+            android:icon="@drawable/ic_delete"
             android:defaultValue="false"
             android:key="eliminarPokemon"
             android:title="Eliminar mis pokémons" />
 
 
         <EditTextPreference
+            android:icon="@drawable/ic_info"
             android:key="acercaDe"
             android:title="Acerca de..." />
 
         <Preference
             android:key="logout"
+            android:icon="@drawable/ic_delete"
             android:title="Cerrar sesión" />
 
     </PreferenceCategory>
-
 </PreferenceScreen>
-
-
-
-
-
-

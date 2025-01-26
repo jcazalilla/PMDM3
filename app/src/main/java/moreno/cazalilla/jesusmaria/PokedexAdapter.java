@@ -1,24 +1,27 @@
 package moreno.cazalilla.jesusmaria;
 
 
+import static java.security.AccessController.getContext;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-import moreno.cazalilla.jesusmaria.databinding.FragmentPokedexBinding;
+import java.util.List;
 
 public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder> {
 
-    private List<PokemonData> listPokedex;
+    private List<PokedexData> listPokedex;
 
 
-    public PokedexAdapter(List<PokemonData> list) {
+    public PokedexAdapter(List<PokedexData> list) {
         this.listPokedex = list;
     }
 
@@ -34,9 +37,29 @@ public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexV
     @Override
     public void onBindViewHolder(@NonNull PokedexAdapter.PokedexViewHolder holder, int position) {
 
-        PokemonData pokemon = listPokedex.get(position);
+        PokedexData pokemon = listPokedex.get(position);
         holder.nameTextView.setText(pokemon.getName());
         holder.urlTextView.setText(pokemon.getUrl());
+
+        // Configura el OnClickListener para grabar elemento en firestore
+        holder.itemView.setOnClickListener(v -> {
+
+            //recoger datos de panntalla para la colección
+            PokedexData pokedexData = new PokedexData(holder.nameTextView.getText().toString(),
+                    holder.urlTextView.getText().toString());
+
+            //instancia de la base de datos de Firestore
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            //agregar datos a la colección firestore
+            db.collection("pokemon").add(pokedexData)
+                    .addOnSuccessListener(runnable -> {
+                        Toast.makeText(v.getContext(), holder.nameTextView.getText() + " guardado.", Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnFailureListener(runnable ->
+                            Toast.makeText(v.getContext(), "Error al guardar Pokédex.", Toast.LENGTH_SHORT).show()
+                    );
+        });
 
     }
 

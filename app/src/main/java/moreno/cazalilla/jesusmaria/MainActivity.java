@@ -16,6 +16,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import com.firebase.ui.auth.AuthUI;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import moreno.cazalilla.jesusmaria.databinding.ActivityMainBinding;
 
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
 
         // Configura la Toolbar como ActionBar
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -118,40 +121,11 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
-
-
-
-
 /*
 
         //===============================================================================================
-        //datbase firestore
-        private void saveDataToFirestore (View view){
-            //recoger datos de panntalla para la colección
-            PokemonData pokemonData = new PokemonData(binding.nameEditText.getText().toString(), );
 
-            //instancia de la base de datos de Firestore
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            //agregar datos a la colección firestore
-            db.collection("player").add(pokemonData)
-                    .addOnSuccessListener(runnable ->
-                            Toast.makeText(this, "Registro guardado.", Toast.LENGTH_SHORT).show())
-                    .addOnFailureListener(Runnable ->
-                            Toast.makeText(this, "Error al guardar registro.", Toast.LENGTH_SHORT).show()
-                    );
-        }
 
-        // lectura de datos de la colección
-        private void readAllDataFirestore (View view) {
-            //instancia de la base de datos de Firestore
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-            Task<QuerySnapshot> player = db.collection("player").get().addOnSuccessListener(runnable ->
-                            Toast.makeText(this, "lectura correcta de la colección.", Toast.LENGTH_SHORT).show())
-                    .addOnFailureListener(Runnable ->
-                            Toast.makeText(this, "fallo en la letura de la colección", Toast.LENGTH_SHORT).show());
-
-        }
 
 */

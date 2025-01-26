@@ -3,11 +3,11 @@
 
     <item
         android:id="@+id/nav_pokedex"
-        android:icon="@drawable/pokemonball"
+        android:icon="@drawable/ic_pokedex"
         android:title="@string/pokedex" />
     <item
         android:id="@+id/nav_pokemons"
-        android:icon="@drawable/pikachu"
+        android:icon="@drawable/ic_pokemon"
         android:title="@string/mis_pokemons" />
     <item
         android:id="@+id/nav_ajustes"
