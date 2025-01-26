@@ -11,10 +11,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,34 +58,32 @@ public class PokemonFragment extends Fragment {
 
     private void loadPokemon() {
 
-        // lectura de datos de la colección
-
         //instancia de la base de datos de Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        // Obtener la colección "pokemon"
+        // Obtenemos la colección "pokémon"
         db.collection("pokemon")
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
-                    // Limpiar la lista actual de Pokémon
+                    // Limpiamos la lista actual de Pokémon
                     listPokemon.clear();
 
-                    // Recorrer los documentos recuperados
+                    // Recorremos los documentos recuperados, bucle foreach
                     for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                        // Convertir el documento a un objeto PokemonData
+                        // Convertimos el documento a un objeto PokemonData
                         PokemonData pokemon = document.toObject(PokemonData.class);
                         listPokemon.add(pokemon);
                     }
 
-                    // Notificar al adaptador que los datos han cambiado
+                    // Notificamos al adaptador que los datos han cambiado
                     adapter.notifyDataSetChanged();
 
-                    // Mostrar un mensaje de éxito
                     Toast.makeText(getContext(), "Colección cargada con éxito.", Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
-                    // Mostrar un mensaje de error
-                    Toast.makeText(getContext(), "Fallo en la lectura de la colección: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(getContext(), "Fallo en la lectura de la colección: " +
+                            e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
 
     }

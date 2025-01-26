@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
@@ -19,6 +20,7 @@ import java.util.List;
 public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder> {
 
     private List<PokedexData> listPokedex;
+    //instancia de la base de datos de Firestore
 
 
     public PokedexAdapter(List<PokedexData> list) {
@@ -41,6 +43,7 @@ public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexV
         holder.nameTextView.setText(pokemon.getName());
         holder.urlTextView.setText(pokemon.getUrl());
 
+
         // Configura el OnClickListener para grabar elemento en firestore
         holder.itemView.setOnClickListener(v -> {
 
@@ -60,7 +63,6 @@ public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexV
                             Toast.makeText(v.getContext(), "Error al guardar Pokédex.", Toast.LENGTH_SHORT).show()
                     );
         });
-
     }
 
 
@@ -83,3 +85,4 @@ public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexV
         }
     }
 }
+
