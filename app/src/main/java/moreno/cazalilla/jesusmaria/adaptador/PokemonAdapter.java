@@ -1,6 +1,5 @@
-package moreno.cazalilla.jesusmaria;
+package moreno.cazalilla.jesusmaria.adaptador;
 
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import java.net.URI;
 import java.util.List;
 
+import moreno.cazalilla.jesusmaria.R;
 import moreno.cazalilla.jesusmaria.models.PokemonData;
-import moreno.cazalilla.jesusmaria.models.Types;
 
 public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonViewHolder> {
     private List<PokemonData> listPokemon;

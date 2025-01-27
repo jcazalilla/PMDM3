@@ -5,7 +5,7 @@
 
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".AjustesFragment">
+    tools:context=".fragments.AjustesFragment">
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

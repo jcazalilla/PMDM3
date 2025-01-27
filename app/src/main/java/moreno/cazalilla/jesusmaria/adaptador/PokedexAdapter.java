@@ -1,4 +1,4 @@
-package moreno.cazalilla.jesusmaria;
+package moreno.cazalilla.jesusmaria.adaptador;
 
 
 import android.view.LayoutInflater;
@@ -14,6 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
+import moreno.cazalilla.jesusmaria.R;
 import moreno.cazalilla.jesusmaria.models.PokedexData;
 
 public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder> {

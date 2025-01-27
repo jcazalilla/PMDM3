@@ -1,4 +1,4 @@
-package moreno.cazalilla.jesusmaria;
+package moreno.cazalilla.jesusmaria.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,6 +17,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
+import moreno.cazalilla.jesusmaria.adaptador.PokemonAdapter;
 import moreno.cazalilla.jesusmaria.api.PokemonAPI;
 import moreno.cazalilla.jesusmaria.databinding.FragmentPokemonBinding;
 import moreno.cazalilla.jesusmaria.models.PokemonData;

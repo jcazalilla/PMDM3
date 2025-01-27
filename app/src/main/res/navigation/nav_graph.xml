@@ -8,17 +8,17 @@
 
     <fragment
         android:id="@+id/navigation_pokedex"
-        android:name="moreno.cazalilla.jesusmaria.PokedexFragment"
+        android:name="moreno.cazalilla.jesusmaria.fragments.PokedexFragment"
         android:label="fragment_pokedex"
         tools:layout="@layout/fragment_pokedex" />
     <fragment
         android:id="@+id/navigation_pokemon"
-        android:name="moreno.cazalilla.jesusmaria.PokemonFragment"
+        android:name="moreno.cazalilla.jesusmaria.fragments.PokemonFragment"
         android:label="fragment_pokedex"
         tools:layout="@layout/fragment_pokemon" />
     <fragment
         android:id="@+id/navigation_ajustes"
-        android:name="moreno.cazalilla.jesusmaria.AjustesFragment"
+        android:name="moreno.cazalilla.jesusmaria.fragments.AjustesFragment"
         android:label="fragment_pokedex"
         tools:layout="@layout/fragment_ajustes" />
 

@@ -1,9 +1,11 @@
-package moreno.cazalilla.jesusmaria;
+package moreno.cazalilla.jesusmaria.fragments;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.preference.PreferenceFragmentCompat;
+
+import moreno.cazalilla.jesusmaria.R;
 
 public class AjustesFragment extends PreferenceFragmentCompat {
 

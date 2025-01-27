@@ -1,4 +1,4 @@
-package moreno.cazalilla.jesusmaria;
+package moreno.cazalilla.jesusmaria.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import moreno.cazalilla.jesusmaria.adaptador.PokedexAdapter;
 import moreno.cazalilla.jesusmaria.api.PokedexAPI;
 import moreno.cazalilla.jesusmaria.databinding.FragmentPokedexBinding;
 import moreno.cazalilla.jesusmaria.models.PokedexData;
