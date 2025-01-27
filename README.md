@@ -11,6 +11,9 @@ aplicaciónn.
 ## Carácteristicas principales
 * el usuario de la aplicación se autenticará para el iniciar en ella mediante correo eléctronico o 
 cuenta de Google.
-* 
+* Creamos en al aplicación una lista pokédex recogiendo la información de de la APi pokémons "https://pokeapi.co/api/v2/"
+* Se crea una colección de pokémons en firestore al pulsar sobre un elemento de la lista pokédex, estos son tratados como
+  pokémons capturados. La aplicación leerá de firestore los elementos y los mostrará en un recyclerview
+ 
 
 
