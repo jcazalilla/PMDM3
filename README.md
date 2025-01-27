@@ -23,9 +23,14 @@ cuenta de Google.
 * Firestore para la creacción de la colección de los pokémons capturados
 * Retrofit para acceder y recoger elementos de la API (lista pokédex) simplificando el acceso a la información
 * Usamos libreria Glide para mostrar imagen de una url, y la ya mencionada Retrofit para el acceso a las colecciones
-* 
-* 
 
- 
+## Conclusiones del desarrollador
+### "Aprendizaje"
+* La libreria retrofit, como acceder a los elementos del árbol de datos y como hacer según la  profundidad del dato en la colección.
+* Firebase para la autenticación y la estadística que puedes monitorizar de tu aplicación desarrollada
+* Firestore como base de datos externa al dispositivo, descargando de peso de alamacenamiento al dispositivo.
+
+ ![image](https://github.com/user-attachments/assets/d351edbc-9935-457a-b914-75c75f017935)
+
 
 
