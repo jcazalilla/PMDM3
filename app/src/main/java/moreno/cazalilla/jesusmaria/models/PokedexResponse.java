@@ -1,4 +1,4 @@
-package moreno.cazalilla.jesusmaria;
+package moreno.cazalilla.jesusmaria.models;
 
 import java.util.List;
 

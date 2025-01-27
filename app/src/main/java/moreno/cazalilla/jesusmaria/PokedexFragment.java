@@ -15,7 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import moreno.cazalilla.jesusmaria.api.PokedexAPI;
 import moreno.cazalilla.jesusmaria.databinding.FragmentPokedexBinding;
+import moreno.cazalilla.jesusmaria.models.PokedexData;
+import moreno.cazalilla.jesusmaria.models.PokedexResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -49,7 +52,6 @@ public class PokedexFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
 
-        //llamada a RETROFIT
         loadPokedex();
         return binding.getRoot();
     }
@@ -62,7 +64,7 @@ public class PokedexFragment extends Fragment {
 
 
     private void loadPokedex() {
-
+        //llamada a RETROFIT
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

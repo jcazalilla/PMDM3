@@ -1,5 +1,6 @@
-package moreno.cazalilla.jesusmaria;
+package moreno.cazalilla.jesusmaria.api;
 
+import moreno.cazalilla.jesusmaria.models.PokedexResponse;
 import retrofit2.Call;
 import retrofit2.http.GET;
 

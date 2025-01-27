@@ -17,7 +17,10 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
+import moreno.cazalilla.jesusmaria.api.PokemonAPI;
 import moreno.cazalilla.jesusmaria.databinding.FragmentPokemonBinding;
+import moreno.cazalilla.jesusmaria.models.PokemonData;
+import moreno.cazalilla.jesusmaria.models.PokemonResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -68,16 +71,24 @@ public class PokemonFragment extends Fragment {
                     // Limpiamos la lista actual de Pokémon
                     listPokemon.clear();
 
+                    //para almacenar cada endpoint, cada nombre
+                    List<String> pokemonsNames = new ArrayList<>();
+
                     // Recorremos los documentos recuperados, bucle foreach
                     for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                         // Convertimos el documento a un objeto PokemonData
                         PokemonData pokemon = document.toObject(PokemonData.class);
                         listPokemon.add(pokemon);
+
+                        //guardamos los nombres para la API
+                        pokemonsNames.add(pokemon.getName());
+
+                        adapter.notifyDataSetChanged();
+
+                        //hacemos retrofit a la API
+                        solicitaApiPokemons(pokemonsNames);
+
                     }
-
-                    // Notificamos al adaptador que los datos han cambiado
-                    adapter.notifyDataSetChanged();
-
                     Toast.makeText(getContext(), "Colección cargada con éxito.", Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
@@ -88,4 +99,57 @@ public class PokemonFragment extends Fragment {
 
     }
 
+    private void solicitaApiPokemons(List<String> pokemonsNames) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        PokemonAPI pokemonAPI = retrofit.create(PokemonAPI.class);
+        //lista para almacenar los detalles de la api
+        List<PokemonResponse> apiPokemonList = new ArrayList<>();
+
+        //hacemos una solicitud a la API por cada nombre
+        for (String name : pokemonsNames) {
+            Call<PokemonResponse> call = pokemonAPI.getPokemons(name);
+
+
+            call.enqueue(new Callback<PokemonResponse>() {
+
+                @Override
+                public void onResponse(Call<PokemonResponse> call, Response<PokemonResponse> response) {
+
+                    if (response.isSuccessful() && response.body() != null) {
+
+                        apiPokemonList.add(response.body());
+
+                        if (apiPokemonList.size() == pokemonsNames.size()) {
+                            combinedData(apiPokemonList);
+                        } else {
+                            Toast.makeText(getContext(), "Error al cargar Pokémon", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<PokemonResponse> call, Throwable t) {
+                    if (getContext() != null)
+                        Toast.makeText(getContext(), "Error de conexión: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+            });
+        }
+    }
+
+
+    private void combinedData(List<PokemonResponse> apiPokemonList) {
+        //combinamos datos de firestore y API
+        for (int i = 0; i < listPokemon.size(); i++) {
+            PokemonData firestorePokemon = listPokemon.get(i);
+            PokemonResponse apiPokemon = apiPokemonList.get(i);
+
+            firestorePokemon.setApiDetails(apiPokemon);
+        }
+        adapter.notifyDataSetChanged();
+    }
 }

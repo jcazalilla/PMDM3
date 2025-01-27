@@ -1,8 +1,6 @@
 package moreno.cazalilla.jesusmaria;
 
 
-import static java.security.AccessController.getContext;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +10,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
+
+import moreno.cazalilla.jesusmaria.models.PokedexData;
 
 public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexViewHolder> {
 
@@ -31,7 +30,7 @@ public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexV
     @Override
     public PokedexViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.cardview, parent, false);
+                .inflate(R.layout.cardview_pokedex, parent, false);
 
         return new PokedexViewHolder(view);
     }
