@@ -42,17 +42,13 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
 
 
         holder.nameTextView.setText(pokemon.getName());
-        if (pokemon.getHeight()!=null && pokemon.getOrder()!=null && pokemon.getHeight()!=null){
-
-            holder.pesoTextView.setText(pokemon.getWeight());
-            holder.orderTextView.setText(pokemon.getOrder());
-            holder.alturaTextView.setText(pokemon.getHeight());
-        }
-
+        //holder.pesoTextView.setText(pokemon.getApiDetails().getWeight());
+        //holder.orderTextView.setText(pokemon.getApiDetails().getId());
+        //holder.alturaTextView.setText(pokemon.getApiDetails().getHeight());
 
 
         if (pokemon.getApiDetails() != null && pokemon.getApiDetails().getSprites() != null) {
-            String imageUrl = pokemon.getApiDetails().getSprites().getOther().getHome().getFront_default();
+            String imageUrl = pokemon.getApiDetails().getSprites().getFront_default();
             if (imageUrl != null) {
                 Glide.with(holder.itemView.getContext())
                         .load(imageUrl)
@@ -66,7 +62,14 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
     @Override
     public int getItemCount() {
         return listPokemon.size();
-    }
+    }/*if (pokemon.getApiDetails() != null && pokemon.getApiDetails().getSprites() != null) {
+            String imageUrl = pokemon.getApiDetails().getSprites().getFront_default();
+            if (imageUrl != null) {
+                Glide.with(holder.itemView.getContext())
+                        .load(imageUrl)
+                        .into(holder.imageView);
+            }
+        }*/
 
 
     public class PokemonViewHolder extends RecyclerView.ViewHolder {

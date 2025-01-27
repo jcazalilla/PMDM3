@@ -1,11 +1,10 @@
 package moreno.cazalilla.jesusmaria.models;
 
 public class Sprites {
-    Other other;
 
-    public Other getOther() {
-        return other;
+    String front_default;
+
+    public String getFront_default() {
+        return front_default;
     }
-
-
 }

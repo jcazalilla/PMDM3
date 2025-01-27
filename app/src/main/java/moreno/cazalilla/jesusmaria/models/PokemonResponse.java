@@ -2,31 +2,38 @@ package moreno.cazalilla.jesusmaria.models;
 
 public class PokemonResponse {
     private String name;
+
     private Types types;
     private Sprites sprites;
+    private String id;
+    private String weight;
+    private String height;
+
+    public String getId() {
+        return id;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public String getHeight() {
+        return height;
+    }
 
     public Types getTypes() {
         return types;
     }
 
-    public void setTypes(Types types) {
-        this.types = types;
-    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Sprites getSprites() {
         return sprites;
     }
 
-    public void setSprites(Sprites sprites) {
-        this.sprites = sprites;
-    }
 }
 
