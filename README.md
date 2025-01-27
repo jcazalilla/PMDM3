@@ -8,4 +8,9 @@ con la información de cada pokémon. Sobre esta APi capturamos cada pokémon al
 la lista que se crea llamada pokédex, mostrando los elementos capturados en otro fragmento de la 
 aplicaciónn.
 
+## Carácteristicas principales
+* el usuario de la aplicación se autenticará para el iniciar en ella mediante correo eléctronico o 
+cuenta de Google.
+* 
+
 
