@@ -17,11 +17,14 @@ cuenta de Google.
 * La pantalla ajustes tendrá el cambio de idioma de la app, cerrar sesión de usuario autenticado, información del desarrollador
 
 ## Tecnología utilizda
-** ReciclerView para mostrar cada pokémon 
-** Fragment para mostrar las distintas pantallas de navegación: Pokédex, Pokémons capturador y ajustes
-** Firebase para la autenticación de usuario
-** Firestore para la creacción de la colección de los pokémons capturados
-** Retrofit para acceder y recoger elementos de la API (lista pokédex) simplificando el acceso a la información
+* ReciclerView para mostrar cada pokémon 
+* Fragment para mostrar las distintas pantallas de navegación: Pokédex, Pokémons capturador y ajustes
+* Firebase para la autenticación de usuario
+* Firestore para la creacción de la colección de los pokémons capturados
+* Retrofit para acceder y recoger elementos de la API (lista pokédex) simplificando el acceso a la información
+* Usamos libreria Glide para mostrar imagen de una url, y la ya mencionada Retrofit para el acceso a las colecciones
+* 
+* 
 
  
 
