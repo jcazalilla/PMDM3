@@ -30,6 +30,8 @@ cuenta de Google.
 * Firebase para la autenticación y la estadística que puedes monitorizar de tu aplicación desarrollada
 * Firestore como base de datos externa al dispositivo, descargando de peso de alamacenamiento al dispositivo.
 
+## Captura de pantalla de autenticación con Firebase
+
  ![image](https://github.com/user-attachments/assets/d351edbc-9935-457a-b914-75c75f017935)
 
 
